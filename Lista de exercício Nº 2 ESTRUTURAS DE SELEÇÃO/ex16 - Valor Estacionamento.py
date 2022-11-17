@@ -8,16 +8,16 @@ saida = int(input("Informe o horário de saída do veículo (horas): ")) * 60
 saida += int(input("Informe o horário de saída do veículo (minutos): "))
 lavagemgratis = False
 
-if saida >= entrada:
+if saida >= entrada:  # Verificando no caso onde a entrada e saída ocorreu em um mesmo dia.
     tempototalnoestacionamento = saida - entrada
-else:
+else:  # Verificando no caso onde a saída ocorreu no dia seguinte (além da 00:00).
     tempototalnoestacionamento = abs((entrada - saida) - (24 * 60))
 
 if tempototalnoestacionamento > 240:
     lavagemgratis = True
 
-print(f"Horário de entrada: {entrada // 60:0>2}:{entrada % 60:0>2}", "(Dia 1)" if saida < entrada else "")
-print(f"Horário de saída: {saida // 60:0>2}:{saida % 60:0>2}", "(Dia 2)" if saida < entrada else "")
+print(f"Horário de entrada: {entrada // 60:0>2}:{entrada % 60:0>2}")
+print(f"Horário de saída: {saida // 60:0>2}:{saida % 60:0>2}", "(Dia seguinte)" if saida < entrada else "")
 print(f"Total de horas no estacionamento: {tempototalnoestacionamento // 60:0>2}:{tempototalnoestacionamento % 60:0>2}")
 print(f"Você deve pagar um total de R${(tempototalnoestacionamento // 60) * 2.5:.2f}")
 if lavagemgratis:
