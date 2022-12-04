@@ -15,15 +15,16 @@ N8, indicando os valores lidos pelo dispositivo (Ni ´e 0, 1 ou 9 para 1 ≤ i �
 Sa´ıda
 Imprima uma ´unica linha contendo a letra mai´uscula “S” caso todos os bits sejam lidos com sucesso;
 caso contr´ario imprima uma ´unica linha contendo a letra mai´uscula “F”, correspondendo a uma falha."""
-
-falha = False
-
-for bits in range(0, 8):
-    entrada = int(input("bit: "))
-    if entrada == 9:
-        falha = True
+from random import choice
+validentry = [0, 1, 9]
+entry = [choice(validentry) for bit in range(0, 8)]
+print(entry)
+fail = False
+for bits in entry:
+    if bits == 9:
+        fail = True
         break
-if falha:
+if fail:
     print("F")
 else:
     print("S")
