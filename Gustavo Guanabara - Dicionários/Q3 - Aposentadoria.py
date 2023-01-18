@@ -8,14 +8,19 @@ data = datetime.now()
 ano_atual = data.year
 
 pessoa_fisica = dict()
-pessoa_fisica["nome"] = input("Nome: ")
-pessoa_fisica["nascimento"] = int(input("Ano de Nascimento: "))
-pessoa_fisica["idade"] = (pessoa_fisica["nascimento"] - ano_atual) * (-1)
+pessoa_fisica["Nome"] = input("Nome: ")
+pessoa_fisica["Nascimento"] = int(input("Ano de Nascimento: "))
+pessoa_fisica["Idade"] = (pessoa_fisica["Nascimento"] - ano_atual) * (-1)
 
 ctps = int(input("Carteira de Trabalho (0 não tem): "))
 if ctps != 0:
-    pessoa_fisica["contratação"] = int(input("Ano de Contratação: "))
-    pessoa_fisica["salário"] = float(input("Salário: "))
+    pessoa_fisica["Contratação"] = int(input("Ano de Contratação: "))
+    pessoa_fisica["Salário"] = float(input("Salário: "))
+    ano_da_aposentadoria = pessoa_fisica["Contratação"] + 35
+    idade_para_aposentadoria = ano_da_aposentadoria - pessoa_fisica["Nascimento"]
+    pessoa_fisica["Aposentadoria"] = idade_para_aposentadoria
 
+print("\nDetalhes Do Cadastro")
 
-
+for k, v in pessoa_fisica.items():
+    print(f"{k}: {v}")

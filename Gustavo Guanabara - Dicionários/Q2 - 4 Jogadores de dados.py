@@ -31,8 +31,20 @@ jogadores_e_numeros_obtidos = dict(list_to_dict)
 print("Ranking dos jogadores:")
 rank = 1
 for v, k in jogadores_e_numeros_obtidos.items():
-    print(f"\t{rank}º lugar: {v} com {k}")
+    print(f"\t{rank}º lugar: {v} obteve {k}")
     rank += 1
     sleep(0.8)
 
 
+"""
+para ordenar um dicionário, pode-se usar o método itemgetter:
+Ex:
+    Dada a lista "dict_para_lista" obtida de um dict.items() -- [("jogador1", 5), ("jogador2",3), ("jogador4",4), 
+                                                                ("jogador5",1)]
+    sorted(dict_para_lista.items(), key=itemgetter(1), reverse=True)
+    
+        O parâmetro"key" pede o index que deve ser levado em consideração para ordenar.
+        
+    Saída:
+        [("jogador1", 5),  ("jogador4",4), ("jogador2",3), ("jogador5",1)]
+ """
