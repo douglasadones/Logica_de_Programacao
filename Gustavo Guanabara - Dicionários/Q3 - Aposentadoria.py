@@ -4,8 +4,7 @@ acrescente, além da idade, com quantos anos a pessoa vai se aposentar. Admita 3
 
 from datetime import datetime
 
-data = datetime.now()
-ano_atual = data.year''
+ano_atual = datetime.now().year
 
 pessoa_fisica = dict()
 pessoa_fisica["Nome"] = input("Nome: ")
