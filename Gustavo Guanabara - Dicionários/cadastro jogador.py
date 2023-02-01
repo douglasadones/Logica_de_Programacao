@@ -18,6 +18,8 @@ while continuar:
     aproveitamento_individual["gols"] = gols_por_partida
     cadastros.append(aproveitamento_individual.copy())
     continuar = int(input("Deseja adicionar mais um jogador? (0 para não, 1 para sim):  "))
+if sum(aproveitamento_individual["gols"]) == 0:
+    aproveitamento_individual["gols"] = "Nenhum Gol Feito."
 
 
 # Sistema de vizualização individual dos jogadores
@@ -36,9 +38,13 @@ while continuar_vizualizando:
         if key != "gols":
             print(f"{key.capitalize()}: {value}")
         else:
-            print(f"{key.capitalize()} por partida: ", end="")
-            for c in aproveitamento_individual["gols"]:
-                print(f"{c}", end=", " if aproveitamento_individual["gols"].index(c) !=
-                                          len(aproveitamento_individual["gols"]) - 1 else ".\n")
+            if aproveitamento_individual["gols"] != "Nenhum Gol Feito.":
+                print(f"{key.capitalize()} por partida: ", end="")
+                for c in aproveitamento_individual["gols"]:
+                    print(f"{c}", end=", " if aproveitamento_individual["gols"].index(c) !=
+                                              len(aproveitamento_individual["gols"]) - 1 else ".\n")
+            else:
+                print(f"{key.capitalize()} por partida: {aproveitamento_individual['gols']}")
+                break
 
 
