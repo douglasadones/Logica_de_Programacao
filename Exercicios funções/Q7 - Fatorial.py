@@ -19,5 +19,3 @@ def fatorial(num, show):
 
 fatorial(4, False)
 fatorial(4, True)
-
-
