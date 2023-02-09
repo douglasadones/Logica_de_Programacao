@@ -14,7 +14,6 @@ def contar(inicio, fim, passo):
         while inicio <= fim:
             print(inicio, end=" ")
             inicio += passo
-
     elif inicio > fim:
         while fim <= inicio:
             print(inicio, end=" ")
